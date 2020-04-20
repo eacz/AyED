@@ -10,7 +10,7 @@ function sumarNaturales(n:entero):entero :
     sumarNaturales:=suma;
 fin function
 proceso
-    esc('ingrese su numero')
+    esc('ingrese su numero natural')
     leer(n)
     suma:=0
     suma:=sumarNaturales(n)

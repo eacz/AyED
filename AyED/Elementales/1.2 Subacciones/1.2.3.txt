@@ -1,0 +1,24 @@
+Accion 1.2.3 es
+Ambiente
+    n1,n2,n3, menorActual: entero
+    pregunta: logico
+    funcion valorMinimo(n1: entero, n2: entero, n3: entero)entero :
+        si n1<n2 y n1<n3 entonces
+            valorMinimo:=n1
+        si si n2<n1 y n2<n3 entonces
+            valorMinimo:=n2
+        si si n3<n1 y n3<n2 entonces
+            valorMinimo:=n3
+    fin funcion
+Proceso
+    esc('quiere comparar 3 valores numericos?')
+    leer(pregunta)
+    mientras pregunta hacer
+        esc('ingrese sus valores')
+        leer(n1,n2,n3)
+        menorActual:=valorMinimo(n1,n2,n3)
+        esc('el valor minimo de los numero que ingreso es: ', menorActual)
+        esc('quiere volver a comparar 3 valores numericos?')
+    fin mientras
+    esc('bye bye adios')
+Fin Accion
