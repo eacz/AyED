@@ -1,0 +1,16 @@
+Accion 1.2.8 es
+Ambiente
+    n1,n2: entero
+    procedimento Intercambio(n1P:entero, n2P:entero)
+        Proceso
+            n1:=n2P
+            n2:=n1P
+    fin procedimento    
+Proceso
+    esc('ingrese sus numeros')
+    leer(n1,n2)
+    Intercambio(n1,n2)
+    esc('variables intercambiadas')
+    esc('variable 1 ', n1)
+    esc('variable 2 ', n2)
+Fin Accion
