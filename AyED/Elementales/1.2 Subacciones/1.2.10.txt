@@ -1,0 +1,110 @@
+Accion 1.2.10 es
+Ambiente
+        esc('*****')
+        esc('*   *')
+        esc('*   *')
+        esc('*   *')
+        esc('*****')
+    fin Procedimiento
+    
+    Procedimiento mostrar1() 
+        esc('*')
+        esc('*')
+        esc('*')
+        esc('*')
+        esc('*')
+    fin Procedimiento
+
+    Procedimiento mostrar2() 
+    fin Procedimiento
+        esc('*****')
+        esc('    *')
+        esc('*****')
+        esc('*    ')
+        esc('*****')
+    Procedimiento mostrar3() 
+        esc('*****')
+        esc('    *')
+        esc('*****')
+        esc('    *')
+        esc('*****')
+    fin Procedimiento
+
+    Procedimiento mostrar4() 
+        esc('*   *')
+        esc('*   *')
+        esc('*****')
+        esc('    *')
+        esc('    *')
+    fin Procedimiento
+
+    Procedimiento mostrar5() 
+        esc('*****')
+        esc('*    ')
+        esc('*****')
+        esc('    *')
+        esc('*****')
+    fin Procedimiento
+
+    Procedimiento mostrar6() 
+        esc('*****')
+        esc('*    ')
+        esc('*****')
+        esc('*   *')
+        esc('*****')
+    fin Procedimiento
+
+    Procedimiento mostrar7() 
+        esc('*****')
+        esc('    *')
+        esc('   * ')
+        esc('  *  ')
+        esc(' *   ')
+    fin Procedimiento
+
+    Procedimiento mostrar8() 
+        esc('*****')
+        esc('*   *')
+        esc('*****')
+        esc('*   *')
+        esc('*****')
+    fin Procedimiento
+
+    Procedimiento mostrar9() 
+        esc('*****')
+        esc('*   *')
+        esc('*****')
+        esc('    *')
+        esc('    *')    
+    fin Procedimiento
+
+    Procedimiento mostrarNro(n: entero) :
+        segun n hacer:
+            =1:
+                mostrar1()
+            =2:
+                mostrar2()
+            =3: 
+                mostrar3()
+            =4:
+                mostrar4()
+            =5:
+                mostrar5()
+            =6:
+                mostrar6()
+            =7:
+                mostrar7()
+            =8:
+                mostrar8()
+            =9:
+                mostrar9()
+            otro:
+                esc('no ingreso un dígito')
+        fin segun
+    fin Procedimiento
+Proceso
+    esc('ingrese un digito para dibujarlo por pantalla')
+    leer(n)
+    mostrarNro(n)
+    ('bye bye')
+Fin Accion
