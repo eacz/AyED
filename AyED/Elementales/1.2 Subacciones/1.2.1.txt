@@ -1,0 +1,11 @@
+Accion cuadrado es:
+ambiente
+n, nAlCuadrado: entero
+funcion calcularCuadrado(n: entero):entero es
+    calcularCuadrado:=n**2
+fin funcion
+proceso
+    esc('Ingrese su numero')
+    leer(n)
+    nAlCuadrado:=calcularCuadrado(n)
+    esc('Su numero al cuadrado es ' nAlCuadrado)
