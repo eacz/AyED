@@ -1,0 +1,18 @@
+Accion 1.2.6 es
+Ambiente
+    producto: real
+    cantidad: entero
+    funcion calcularDescuento(producto: real, cantidad:entero): real
+        Ambiente
+            descuento:=real
+        proceso
+            si cantidad > 12 entonces
+                descuento:= (producto*cantidad)*10/100
+            sino si cantidad > 6 entonces
+                descuento::= (producto*cantidad)*4/100
+            sino
+                descuento:=0.0
+    fin funcion
+Proceso
+
+Fin Accion
