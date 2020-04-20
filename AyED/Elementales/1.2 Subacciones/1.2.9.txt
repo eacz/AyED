@@ -1,0 +1,84 @@
+//que ejercicio mas horrible che
+Accion 1.2.9 es
+Ambiente
+    Procedimiento mostrar0() 
+        esc('*****')
+        esc('*   *')
+        esc('*   *')
+        esc('*   *')
+        esc('*****')
+    fin Procedimiento
+    
+    Procedimiento mostrar1() 
+        esc('*')
+        esc('*')
+        esc('*')
+        esc('*')
+        esc('*')
+    fin Procedimiento
+
+    Procedimiento mostrar2() 
+    fin Procedimiento
+        esc('*****')
+        esc('    *')
+        esc('*****')
+        esc('*    ')
+        esc('*****')
+    Procedimiento mostrar3() 
+        esc('*****')
+        esc('    *')
+        esc('*****')
+        esc('    *')
+        esc('*****')
+    fin Procedimiento
+
+    Procedimiento mostrar4() 
+        esc('*   *')
+        esc('*   *')
+        esc('*****')
+        esc('    *')
+        esc('    *')
+    fin Procedimiento
+
+    Procedimiento mostrar5() 
+        esc('*****')
+        esc('*    ')
+        esc('*****')
+        esc('    *')
+        esc('*****')
+    fin Procedimiento
+
+    Procedimiento mostrar6() 
+        esc('*****')
+        esc('*    ')
+        esc('*****')
+        esc('*   *')
+        esc('*****')
+    fin Procedimiento
+
+    Procedimiento mostrar7() 
+        esc('*****')
+        esc('    *')
+        esc('   * ')
+        esc('  *  ')
+        esc(' *   ')
+    fin Procedimiento
+
+    Procedimiento mostrar8() 
+        esc('*****')
+        esc('*   *')
+        esc('*****')
+        esc('*   *')
+        esc('*****')
+    fin Procedimiento
+
+    Procedimiento mostrar9() 
+        esc('*****')
+        esc('*   *')
+        esc('*****')
+        esc('    *')
+        esc('    *')    
+    fin Procedimiento    
+Proceso
+    esc('el ejercicio no dice que va aca xd')
+Fin Accion
