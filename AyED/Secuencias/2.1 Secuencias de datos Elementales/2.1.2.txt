@@ -1,0 +1,40 @@
+accion 2.1.2 es
+ambiente
+    s:secuencia de caracteres
+    v: caracter
+    cont:entero
+proceso
+    arr(s)
+    avz(s,v)
+    cont=0
+    hacer 
+        si v <> 'A' && v <> 'E' && v <> 'I' && v <> 'O' && v <> 'U' entonces
+            cont=cont+1
+        fin si
+        avz(s,v)
+    mientras v <> 'Z' hacer
+    cerrar(s)
+    esc('la cantidad de letras cosonantes es', cont)
+fin accion
+
+//con conjuntos
+
+accion 2.1.2 es
+ambiente
+    s:secuencia de caracteres
+    v: caracter
+    cont:entero
+    vocales= {'A','E','I','O','U',}
+proceso
+    arr(s)
+    avz(s,v)
+    cont=0
+    hacer
+        si no(v en vocales) entonces
+            cont:=cont+1
+        fin si
+        avz(s,v)
+    mientras v <> 'Z' 
+cerrar(s)
+esc('la cantidad de letras cosonantes es', cont)
+fin accion
