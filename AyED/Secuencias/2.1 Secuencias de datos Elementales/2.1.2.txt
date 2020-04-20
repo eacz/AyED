@@ -7,12 +7,12 @@ proceso
     arr(s)
     avz(s,v)
     cont=0
-    hacer 
+    repetir 
         si v <> 'A' && v <> 'E' && v <> 'I' && v <> 'O' && v <> 'U' entonces
             cont=cont+1
         fin si
         avz(s,v)
-    mientras v <> 'Z' hacer
+    hasta que v = 'Z'
     cerrar(s)
     esc('la cantidad de letras cosonantes es', cont)
 fin accion
@@ -29,12 +29,12 @@ proceso
     arr(s)
     avz(s,v)
     cont=0
-    hacer
+    repetir
         si no(v en vocales) entonces
             cont:=cont+1
         fin si
         avz(s,v)
-    mientras v <> 'Z' 
+    hasta que v = 'Z' 
 cerrar(s)
 esc('la cantidad de letras cosonantes es', cont)
 fin accion
