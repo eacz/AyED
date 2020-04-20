@@ -1,0 +1,18 @@
+Accion 2.1 es
+Ambiente
+    s: secuencia de caracteres
+    v: caracter
+    cont: entero
+Proceso
+    arr(s)
+    avz(s,v)
+    cont:=0
+    mientras v <> '*' hacer
+        si v = 'A' entonces
+            cont:=cont+1
+        fin si
+        avz(s,v)
+    fin mientras
+    cerrar(avz)
+    esc('la cantidad de A es la secuencia es', cont)
+Fin Accion
