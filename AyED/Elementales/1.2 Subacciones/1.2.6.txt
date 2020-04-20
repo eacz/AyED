@@ -2,6 +2,8 @@ Accion 1.2.6 es
 Ambiente
     producto: real
     cantidad: entero
+    precioFinal: real
+    descuento: real
     funcion calcularDescuento(producto: real, cantidad:entero): real
         Ambiente
             descuento:=real
@@ -14,5 +16,12 @@ Ambiente
                 descuento:=0.0
     fin funcion
 Proceso
-
+    esc('ingrese el precio de su producto')
+    leer(producto)
+    esc('ingrese cuantas unidades llevara')
+    leer(cantidad)
+    descuento:=precioFinal(producto, cantidad)
+    precioFinal=(producto*cantidad)-descuento
+    esc('El precio que deberá pagar por todos los productos, con el descuento aplicado, es de', precioFinal)
+    esc('hasta la protzimaaa')
 Fin Accion
