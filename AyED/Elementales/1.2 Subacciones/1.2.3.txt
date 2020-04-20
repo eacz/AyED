@@ -10,6 +10,7 @@ Ambiente
         si si n3<n1 y n3<n2 entonces
             valorMinimo:=n3
     fin funcion
+    
 Proceso
     esc('quiere comparar 3 valores numericos?')
     leer(pregunta)
@@ -19,6 +20,7 @@ Proceso
         menorActual:=valorMinimo(n1,n2,n3)
         esc('el valor minimo de los numero que ingreso es: ', menorActual)
         esc('quiere volver a comparar 3 valores numericos?')
+        leer(pregunta)
     fin mientras
     esc('bye bye adios')
 Fin Accion

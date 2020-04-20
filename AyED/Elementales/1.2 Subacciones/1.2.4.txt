@@ -1,0 +1,21 @@
+Accion 1.2.4 es
+Ambiente
+    n, sumaDeN,clave:entero
+    funcion calcularClave(n:entero):entero 
+        si n<=0 entonces
+            calcularClave:=-1
+        si no
+            mientras n <> 0 hacer
+                sumaDeN:= sumaDeN + (n MOD 10)
+                n:= n DIV 10
+            fin mientras
+            calcularClave:=sumaDeN MOD 7
+    fin funcion
+
+Proceso
+    esc('ingrese su numero para calcular la clave')
+    leer(n)
+    sumaDeN:=0       // por las dudas xd
+    clave:=calcularClave(n)
+    esc('su clave es', n)
+Fin Accion

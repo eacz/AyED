@@ -1,4 +1,4 @@
-Accion cuadrado es:
+Accion 1.2.1 es:
 ambiente
 n, nAlCuadrado: entero
 funcion calcularCuadrado(n: entero):entero

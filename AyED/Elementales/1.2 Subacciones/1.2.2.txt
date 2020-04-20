@@ -1,4 +1,4 @@
-accion natural es
+accion 1.2.2 es
 ambiente
 n:entero
 suma:entero
@@ -9,6 +9,7 @@ function sumarNaturales(n:entero):entero :
     fin mientras
     sumarNaturales:=suma;
 fin function
+
 proceso
     esc('ingrese su numero natural')
     leer(n)
