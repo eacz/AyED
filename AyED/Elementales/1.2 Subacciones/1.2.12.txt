@@ -1,0 +1,6 @@
+Accion 1.2.12 es
+Ambiente
+    //es el mismo que el 1.2.6 (?
+Proceso
+    
+Fin Accion
