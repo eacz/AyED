@@ -1,0 +1,49 @@
+accion 1.2.11 es:
+ambiente
+	n1,n2, resultado : real
+	b:logico
+	opcion:alfanumerico
+
+funcion suma(n1,n2:real):real es
+	suma:=n1+n2
+fin funcion
+
+funcion resta(n1,n2:real):real es
+	resta:=n1-n2
+fin funcion
+
+funcion mult(n1,n2:real):real es
+	suma:=n1*n2
+fin funcion
+
+funcion div(n1,n2:real):real es
+	div:=n1/n2
+fin funcion
+
+funcion menu es:
+	esc('que operacion desea realizar?')
+	leer(opcion)
+	esc('ingrese los valores')
+	leer(n1,n2)
+	segun opcion hacer:
+	='sum':
+		resultado:= suma(n1,n2)
+	='res':
+		resultado:= resta(n1,n2)
+	='div':
+		resultado:= div(n1,n2)
+	='mul':
+		resultado:= mult(n1,n2)
+    fin segun
+    esc('el resultado es', resultado)
+fin funcion
+
+proceso
+	esc('desea realizar una operacion?')
+	leer(b)
+	mientras b hacer
+		menu()
+		esc('desea realizar otra una operacion?')
+		leer(b)
+	fin mientras
+fin proceso
