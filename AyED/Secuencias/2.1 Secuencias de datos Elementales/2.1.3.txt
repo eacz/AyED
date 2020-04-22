@@ -1,0 +1,16 @@
+Accion 2.1.3 es
+Ambiente
+    s: secuencia de caracter
+    v: caracter
+    sn: secuencia de caracter //no me acuerdo si esto iba o no xd
+Proceso
+    arr(s)
+    crear(sn)
+    avz(s,v)
+    mientras NFDS(s) hacer 
+        si v <> '$' entonces
+            escribir(sn, v)
+        fin si
+        avz(s,v)
+    fin mientras
+Fin Accion
