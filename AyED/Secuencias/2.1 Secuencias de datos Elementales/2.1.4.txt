@@ -1,7 +1,7 @@
 Accion - es
 Ambiente
-    s: secuencia de caracteres
-    v: caracter
+    s: secuencia de entero
+    v: entero
     cont: entero
 Proceso
     arr(s)
