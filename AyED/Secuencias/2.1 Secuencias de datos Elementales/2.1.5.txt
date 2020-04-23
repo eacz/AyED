@@ -1,0 +1,23 @@
+Accion - es
+Ambiente
+    s: secuencia de entero
+    v: entero
+    sn:secuencia de entero
+    a: entero
+    b: entero
+Proceso
+    arr(v)
+    avz(v,s)
+    crear(sn)
+    mientras NFDS(s) hacer
+        a:=v
+        avz(s,v)
+        b:=v
+        mientras a <> b hacer
+            a:=a+1
+            escribir(sn,a)
+        fin mientras
+    fin mientras
+    cerrar(sn)
+    cerrar(s)
+Fin Accion
