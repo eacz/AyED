@@ -13,4 +13,5 @@ Proceso
         fin si
         avz(s,v)
     fin mientras
+    cerrar(s)
 Fin Accion
