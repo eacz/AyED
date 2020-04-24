@@ -21,3 +21,28 @@ Proceso
     cerrar(sn)
     cerrar(s)
 Fin Accion
+
+// otra forma
+
+Accion 2.1.5 es
+Ambiente
+    s: secuencia de entero
+    v: entero
+    sn:secuencia de entero
+    cont: entero
+Proceso
+    arr(s)
+    avz(s,v)
+    crear(sn)
+    cont:=1
+    mientras NFDS(sec) hacer
+        si (cont<> v) entonces
+            esc(sn, cont)
+        si no 
+            avz(s,v)
+        fin si
+        cont:=cont+1
+    fin mientras
+    cerrar(sn)
+    cerrar(s)
+Fin Accion
