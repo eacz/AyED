@@ -13,6 +13,6 @@ Proceso
         fin si
         avz(s,v)
     fin mientras
-    cerrar(avz)
+    cerrar(s)
     esc('la cantidad de A es la secuencia es', cont)
 Fin Accion
