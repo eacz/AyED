@@ -1,4 +1,4 @@
-Accion - es
+Accion 2.1.4 es
 Ambiente
     s: secuencia de entero
     v: entero
@@ -6,6 +6,7 @@ Ambiente
 Proceso
     arr(s)
     avz(s, v)
+    cont:=0
     mientras NFDS(s) hacer
         cont:=cont+1
         avz(s, v)
