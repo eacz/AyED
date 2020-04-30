@@ -10,19 +10,19 @@ Ambiente
     menores:entero
 
     procedimiento acumularPoblacion (poblacion:entero, tipo:entero)
-        segun j hacer
+        segun tipo hacer
             =1:
-                masc:=masc+v
-                menores:=menores+v
+                masc:=masc+poblacion
+                menores:=menores+poblacion
             =2
-                fem:=fem+v
-                menores:=menores+v
+                fem:=fem+poblacion
+                menores:=menores+poblacion
             =3
-                masc:=masc+v
-                mayores:=mayores+v
+                masc:=masc+poblacion
+                mayores:=mayores+poblacion
             =4
-                fem:=fem+v
-                mayores:=mayores+v
+                fem:=fem+poblacion
+                mayores:=mayores+poblacion
         fin segun
     fin procedimiento
 
