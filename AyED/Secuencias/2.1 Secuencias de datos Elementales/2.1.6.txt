@@ -1,0 +1,55 @@
+Accion 2.1.6 es
+Ambiente
+    s: secuencia de enteros
+    v: entero
+    i,j: entero
+    total:entero
+    masc:entero
+    fem:entero
+    mayores:entero
+    menores:entero
+
+    procedimiento(poblacion:entero, tipo:entero)
+        segun j hacer
+            =1:
+                masc:=masc+v
+                menores:=menores+v
+            =2
+                fem:=fem+v
+                menores:=menores+v
+            =3
+                masc:=masc+v
+                mayores:=mayores+v
+            =4
+                fem:=fem+v
+                mayores:=mayores+v
+        fin segun
+    fin procedimiento
+
+
+    procedimiento CalcularYMostrarPorcentajes()
+       esc('el porcentaje de poblacion mayor a 18 es', (mayores/total)*100)
+       esc('el porcentaje de poblacion menor a 18 es', (menores/total)*100)
+       esc('el porcentaje de poblacion masculino es', (masc/total)*100)
+       esc('el porcentaje de poblacion femenino es ', (fem/total)*100)      
+    fin procedimiento
+
+Proceso
+    arr(s)
+    avz(s,v)
+    masc:=0
+    fem:=0
+    menores:=0
+    mayores:=0
+    total:=0
+    Para i:=1 hasta 23
+        para j:=1 hasta 4
+            acumularPoblacion(v,j)
+            total:=total+v
+            avz(s,v)
+        fin para
+        avz(s,v)
+    fin para
+    cerrar(s)
+    CalcularYMostrarPorcentajes()
+Fin Accion
