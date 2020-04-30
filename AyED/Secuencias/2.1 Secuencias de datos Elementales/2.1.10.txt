@@ -1,0 +1,25 @@
+Accion 2.1.10 es
+Ambiente
+    s: secuencia de caracteres
+    v: caracter
+    cont: entero
+    letra:caracter
+Proceso
+    escribir('ingrese una letra')
+    leer(letra)
+    arr(s)
+    avz(s,v)
+    cont=0
+    mientras NFDS(s) hacer
+        mientras (v = ' ') hacer
+           avz(s,v) 
+        fin mientras
+        si v = letra entonces
+            cont=cont+1
+        fin si
+        mientras v <> ' ' y NFDS(s) hacer
+            avz(s,v) 
+        fin mientras
+    fin mientras
+    esc('la cantidad de palabras que empiezan con la letra ', letra ,  'es', cont)
+Fin Accion

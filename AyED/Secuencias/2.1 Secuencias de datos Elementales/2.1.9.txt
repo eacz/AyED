@@ -1,0 +1,22 @@
+Accion 2.1.9 es
+Ambiente
+    s: secuencia de caracteres
+    v: caracter
+    cont: entero
+Proceso
+    arr(s)
+    avz(s,v)
+    cont=0
+    mientras NFDS(s) hacer
+        mientras (v = ' ') hacer
+           avz(s,v) 
+        fin mientras
+        si v = 'l' entonces
+            cont=cont+1
+        fin si
+        mientras v <> ' ' y NFDS(s) hacer
+            avz(s,v) 
+        fin mientras
+    fin mientras
+    esc('la cantidad de palabras que empiezan con l es', cont)
+Fin Accion

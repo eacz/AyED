@@ -1,0 +1,27 @@
+Accion 2.1.11 es
+Ambiente
+    s: secuencia de caracter
+    v: caracter
+    cont: entero
+    contPalabra:entero
+Proceso
+    arr(sec)
+    avz(s,v)
+    contPalabra:=0
+    Mientras NFDS(s) hacer
+        cont:=0
+
+        mientras v = ' ' hacer
+            avz(v,s)
+        fin mientras
+        
+        mientras v <> ' ' y NFDS(s) hacer
+            cont:=cont+1
+        fin mientras
+    
+        si cont=4 entonces
+            contPalabra:=contPalabra+1
+        fin si
+    fin Mientras
+    esc('la cantidad de palabras con 4 letras en la secuencia es de ' contPalabra)
+Fin Accion
