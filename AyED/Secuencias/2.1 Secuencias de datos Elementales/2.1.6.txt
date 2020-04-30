@@ -9,7 +9,7 @@ Ambiente
     mayores:entero
     menores:entero
 
-    procedimiento(poblacion:entero, tipo:entero)
+    procedimiento acumularPoblacion (poblacion:entero, tipo:entero)
         segun j hacer
             =1:
                 masc:=masc+v
