@@ -1,0 +1,33 @@
+Accion 2.1.15 es
+Ambiente
+    s: secuencia de caracter
+    v: caracter
+    contPalabra: entero
+    contOracion: entero
+    //la marca es un *
+Proceso
+    arr(s)
+    avz(s,v)
+    contOracion:=0
+    contPalabra:=0
+    mientras v <> * hacer
+        contOracion:=contOracion+1
+        mientras v <> "." hacer
+            
+            mientras v = " "  hacer
+                avz(s,v)
+            fin mientras
+
+            contPalabra:=contPalabra+1
+
+            mientras v <> " " hacer
+                avz(s,v)
+            fin mientras 
+
+        fin mientras
+
+
+    fin mientras 
+    esc('el promedio de palabras por oraciones es: ', contPalabra/contOracion)
+Fin Accion
+
