@@ -20,7 +20,7 @@ Proceso
 
             contPalabra:=contPalabra+1
 
-            mientras v <> " " hacer
+            mientras v <> " " y v <> "." hacer
                 avz(s,v)
             fin mientras 
 
