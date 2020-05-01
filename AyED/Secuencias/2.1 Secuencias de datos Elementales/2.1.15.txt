@@ -26,8 +26,8 @@ Proceso
 
         fin mientras
         avz(s,v)
-
-    fin mientras 
+    fin mientras
+    cerrar(s) 
     esc('el promedio de palabras por oraciones es: ', contPalabra/contOracion)
 Fin Accion
 
