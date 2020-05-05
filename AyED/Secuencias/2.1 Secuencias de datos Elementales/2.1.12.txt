@@ -3,7 +3,7 @@ Ambiente
     s: secuencia de caracteres
     v: caracter
     cont,cont2, i: entero
-    funcion ALG(i: entero, v:caracter):
+    funcion ALG(i: entero, v:caracter):entero :
         segun i hacer
             =1:
                 si v = 'A' entonces
@@ -29,16 +29,20 @@ Proceso
             avz(s,v)
         fin mientras
 
-        mientras v <> ' ' y NFDS(s) hacer 
             para i:=1 hasta 3 
                 cont2:=cont2 + ALG(i,v)
                 avz(s,v)
             fin para
+
             si cont2 = 3 entonces
                 cont:=cont+1
             fin si
+
+        mientras v <> ' ' y NFDS(s) hacer 
             avz(s,v)
+
         fin mientras
-    fin mientras    
+    fin mientras
+    cerrar(s)    
     esc('la cantidad de palabras que empiezan con ALG es ' cont)
 Fin Accion
