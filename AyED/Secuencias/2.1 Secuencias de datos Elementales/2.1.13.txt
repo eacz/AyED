@@ -1,0 +1,48 @@
+Accion 2.1.12 es
+Ambiente
+    s: secuencia de caracteres
+    v: caracter
+    cont,cont2, i: entero
+    funcion ALG(i: entero, v:caracter):
+        segun i hacer
+            =1:
+                si v = 'A' entonces
+                    ALG:=1
+                fin si
+            =2:
+                si v = 'L' entonces
+                    ALG:=1
+                fin si
+            =3:
+                si v = 'G' entonces
+                    ALG:=1
+                fin si
+        fin segun 
+    fin funcion
+Proceso
+    arr(s)
+    avz(s,v)
+    cont:=0
+    contALG:=0
+    contPalabra:=0
+    mientras NFDS(s) hacer
+        cont2=0
+        mientras v = ' ' hacer 
+            avz(s,v)
+        fin mientras
+        contPalabra:=contPalabra+1
+        mientras v <> ' ' y NFDS(s) hacer 
+            para i:=1 hasta 3 
+                cont2:=cont2 + ALG(i,v)
+                avz(s,v)
+            fin para
+            si cont2 = 3 entonces
+                cont:=cont+1
+                contALG:= contALG+1
+            fin si
+            avz(s,v)
+        fin mientras
+    fin mientras    
+    esc('la cantidad de palabras que empiezan con ALG es ', cont)
+    esc('el porcentaje de palabras que empiezan con ALG es ', (contALG/contPalabra)*100)
+Fin Accion
