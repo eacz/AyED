@@ -1,0 +1,34 @@
+Accion 2.1.17 es
+Ambiente
+    s: secuencia de caracter
+    v: caracter  
+    contP, contC, costo: entero  
+    promedio: real
+    function costoTelegrama(promedio: entero):entero
+        si promedio > 5 entonces
+            costoTelegrama:=contC*2
+        si no 
+            costoTelegrama:=contC
+        fin si
+    fin function 
+Proceso
+    arr(s)
+    avz(s,v)
+    contP:=0
+    contC:=0
+    mientras NFDS(s) hacer
+        contP := contP+1
+        mientras v = ' ' hacer
+            avz(s,v)
+        fin mientras
+
+        mientras v <> ' ' y NFDS(s) hacer
+            contC:=contC+1
+            avz(s,v)
+        fin mientras 
+    fin mientras
+    cerrar(s)
+    promedio:=contC/contP
+    costo:= costoTelegrama(promedio)
+    esc('el costo de enviar el telegrama es: ', costo)
+fin Accion
