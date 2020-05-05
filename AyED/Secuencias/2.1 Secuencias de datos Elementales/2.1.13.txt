@@ -2,7 +2,7 @@ Accion 2.1.12 es
 Ambiente
     s: secuencia de caracteres
     v: caracter
-    cont,cont2, i: entero
+    cont,cont2, i, contPalabra, contALG: entero
     funcion ALG(i: entero, v:caracter):entero :
         segun i hacer
             =1:
