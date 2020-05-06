@@ -1,0 +1,33 @@
+Accion 2.1.18 es
+Ambiente
+    s: secuencia de caracter
+    v: caracter
+    sn: secuencia de caracter
+    posicion:=1
+Proceso
+    arr(s)
+    avz(s,v)
+    crear(sn)
+    posicion:=0
+    mientras NFDS(s) hacer
+
+        mientras v = ' ' hacer
+            avz(s,v)
+        fin mientras
+    
+        posicion:=posicion+1
+    
+        si posicion MOD 2 = 0 entonces
+            mientras v <> ' ' y NFDS(s) hacer
+                escribir(sn,v)
+                avz(s,v)
+            fin mientras
+        si no
+            mientras v <> ' ' y NFDS(s) hacer
+                avz(s,v)
+            fin mientras
+        fin si
+    fin mientras
+    cerrar(s)
+    cerrar(sn)
+Fin Accion
