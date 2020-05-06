@@ -1,0 +1,32 @@
+Accion - es
+Ambiente
+    sec: secuencia de caracter
+    v: caracter
+    cont: entero
+Proceso
+    arr(s)
+    avz(s,v)
+    
+
+    mientras <> ',' hacer
+        avz(s,v)
+    fin mientras
+
+    mientras NFDS(s) hacer
+        cont:=0
+        mientras v = ',' hacer
+            avz(s,v)
+        fin mientras
+
+        mientras v <> ',' y  NFDS(s)hacer 
+            cont:=cont+1
+            avz(s,v)
+        fin mientras
+
+        si v = ',' entonces
+            esc('la cantidad de caracteres entre estas comas es: ', cont)
+        fin si
+
+    fin mientras
+    cerrar(s)
+Fin Accion
