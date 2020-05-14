@@ -23,6 +23,7 @@ Proceso
             grabar(alumnosFichados, v)
         fin si
     leer(alumnos, v)
-
     fin mientras
+    cerrar(alumnos)
+    cerrar(alumnosFichados)
 Fin Accion
