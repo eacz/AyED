@@ -1,0 +1,28 @@
+Accion 2.2.3 es
+Ambiente
+    registro = alumno
+        NdeSocio: N(5)
+        NDeTelefono: N(10)
+        ApellidoyNombre: AN(60)
+        Carrera: ('ISI' - 'IEM' - 'IQ' - 'LAR')
+        Domicilio:AN(40)
+        CantidadUnidades:N(2)
+    fin registro
+
+    alumnos: archivo de alumno
+    v: alumno
+
+    alumnosFichados: archivo de alumno
+Proceso
+    abrir /E(alumnos)
+    leer(alumnos, v)
+    abrir /S(alumnosFichados)
+    
+    mientras NFDA(alumnos) hacer
+        si v.CantidadUnidades > 4 y v.Carrera = 'ISI' entonces
+            grabar(alumnosFichados, v)
+        fin si
+    leer(alumnos, v)
+
+    fin mientras
+Fin Accion
