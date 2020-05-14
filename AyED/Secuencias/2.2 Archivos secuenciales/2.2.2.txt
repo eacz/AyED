@@ -1,0 +1,33 @@
+Accion 2.2.2 es
+Ambiente
+    Fecha = registro
+        año: N(4)
+        mes: N(2)
+        dia: N(2)
+    fin registro
+
+    factura = registro
+        N: N(6)
+        fecha: fecha
+        total: n(10,2)
+    fin registro
+
+    sf: archivo de factura
+    v: factura
+    fechadada: fecha
+Proceso
+    abrir e/(sf)
+    leer(sf,v)
+    esc('ingrese una fecha(mes, dia, año')
+    leer(fechadada.mes)
+    leer(fechadada.dia)
+    leer(fechadada.año)
+    
+    esc('N° Factura | Fecha | Importe Total')
+    mientras NFDA(sf) hacer
+        si v.fecha > fechadada y v.total < 1000 entonces
+            esc(v.N, v.fecha, v.total)
+        fin si
+    leer(sf,v)
+    fin mientras
+Fin Accion
