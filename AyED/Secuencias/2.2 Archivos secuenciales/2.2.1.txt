@@ -1,0 +1,32 @@
+Accion 2.2.1 es
+Ambiente
+    Fecha = registro
+        año:= N(4)
+        mes:= N(2)
+        dia:= N(2)
+    fin registro
+
+    Alumno = registro
+        ApellidoYNombre: AN(60)
+        Carrera: {'IQ','ISI','IEM'}
+        Legajo: N(5)
+        FechaNacimiento: Fecha
+        FechaIngreso: Fecha
+        DNI: N(8)
+        Sexo: {'F', 'M'}
+        UltimoExamenA: Fecha
+        Nota: N(2)
+    fin registro
+    
+    arch_alumnos: archivos de Alumno
+    v: Alumno
+     
+Proceso
+    abrir /e(arch_alumnos)
+    leer(arch_alumnos,v)
+    escribir('Legajo | Apellido y nombre | DNI | Carrera')
+    Mientras NFDA(arch_alumnos) hacer
+        escribir(v.Legajo, v.ApellidoYNombre, v.DNI, v.Carrera)
+        leer(arch_alumnos,v) 
+    Fin Mientras
+Fin Accion
