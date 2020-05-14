@@ -104,6 +104,11 @@ Proceso
             esc(s,'?')
         fin si
     fin mientras 
+    
+    cerrar(sa)
+    cerrar(so)
+    cerrar(s)
+    
     esc('La mayor cantidad de obras vendida por un artista es de: ', mayorCant)
     esc('El porcentaje de artistas renacentistas sobre el total de artistas es: ', contArtistasR/contArtistasR*100,'%.')
 Fin Accion
