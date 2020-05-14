@@ -1,0 +1,109 @@
+Accion 2.1.28 es
+Ambiente
+
+    SECUENCIA ARTISTAS
+    M+RENE BARTOL+ROSARIO+34+2?R+JUAN B JUSTO+NEUQUEN+61+5?……..
+
+    SECUENCIAS OBRAS
+    SOL Y PARANA,1997,$913,V/GRITO DE ESPERANZA,2003,$235,R/PENAS,1997,$781,V/………
+
+    sa: secuencia de caracter
+    va: caracter
+    so: secuencia de caracter
+    vo: caracter
+    i,j: entero
+    cantObras: entero
+
+    s: secuencia de caracter
+    funcion caracterANro(numero: entero)
+        segun numero hacer:
+            ='1':
+                caracterANro:=1
+            ='2':
+                caracterANro:=2
+            ='3':
+                caracterANro:=3
+            ='4':
+                caracterANro:=4
+            ='5':
+                caracterANro:=5
+            ='6':
+                caracterANro:=6
+            ='7':
+                caracterANro:=7
+            ='8':
+                caracterANro:=8
+            ='9':
+                caracterANro:=9
+            
+    fin funcion
+
+    procedimiento escribirObras(cantObras: entero)
+        para j:=0 hasta cantObras
+            mientras vo <> '/' y NFDS(so) hacer
+                para i:=0 hasta 2 hacer
+                    mientras vo <> ',' hacer
+                        esc(s,vo)
+                        avz(so,vo)
+                    fin mientras
+                    esc(s,'+')
+                fin para
+                avz(so,vo)
+            fin mientras
+        fin para
+    fin procedimiento
+
+    mayorCant: entero
+
+    procedimiento mayorCantidadObras(cantObras: entero)
+        si cantObras > mayorCant entonces
+            mayorCant:=cantObras
+        fin si
+    fin procedimiento 
+
+Proceso
+    arr(sa,va)
+    avz(sa,va)
+    arr(so)
+    avz(so,vo) 
+    crear(s)
+    mayorCant:=0
+    contArtistas:=0
+    contArtistasR:=0
+    mientras NFDS(sa) hacer
+        contArtistas:=contArtistas+1
+        si va = 'R' entonces
+            contArtistas:=contArtistas+1
+            contArtistasR:=contArtistasR+1
+            avz(sa,va)
+            avz(sa,va)
+            mientras va <> '+' hacer
+                esc(s,va)
+                avz(sa,va)
+            fin mientras
+
+            esc(s,'+')
+            esc(s,'R')
+            esc(s,'+')
+
+            avz(sa,va)
+            para i:=0 hasta 2 hacer
+                mientras va <> + hacer
+                    avz(sa,va)  
+                fin mientras 
+                avz(sa,va)  
+            fin para
+            
+            cantObras:= caracterANro(va)
+            mayorCantidadObras(cantObras)
+
+
+            avz(sa,va)  
+            avz(sa,va)
+            escribirObras(cantObras)
+            esc(s,'?')
+        fin si
+    fin mientras 
+    esc('La mayor cantidad de obras vendida por un artista es de: ', mayorCant)
+    esc('El porcentaje de artistas renacentistas sobre el total de artistas es: ', contArtistasR/contArtistasR*100,'%.')
+Fin Accion
