@@ -88,6 +88,7 @@ Proceso
         leer(reparaciones, reparacionn)
     fin mientras
     corteMarca
+    cerrar(reparaciones)
     esc('El total de costo para el tipo de reparacion mantenimiento por garantia es de', cMG)
     esc('El total de costo para el tipo de reparacion mantenimiento preventivo es de', cMP)
     esc('El total de costo para el tipo de reparacion mantenimiento correctivo es de', cMC)
