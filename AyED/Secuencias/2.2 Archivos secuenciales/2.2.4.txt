@@ -1,0 +1,43 @@
+Accion 2.2.1 es
+Ambiente
+    Fecha = registro
+        año:= N(4)
+        mes:= N(2)
+        dia:= N(2)
+    fin registro
+
+    Alumno = registro
+        ApellidoYNombre: AN(60)
+        Carrera: ('IQ','ISI','IEM')
+        Legajo: N(5)
+        FechaNacimiento: Fecha
+        FechaIngreso: Fecha
+        DNI: N(8)
+        Sexo: {'F', 'M'}
+        UltimoExamenA: Fecha
+        Nota: N(2)
+    fin registro
+    
+    arch_alumnos: archivos de Alumno
+    v: Alumno
+    carreraDada: ('IQ','ISI','IEM')
+    añoDado:N(4)
+    salida: archivos de Alumno
+     
+Proceso
+    abrir /e(arch_alumnos)
+    leer(arch_alumnos,v)
+    abrir s/(salida)
+    esc('ingrese la carrera por la que quiere filtrar')
+    leer(carreraDada)
+    esc('ingrese el año actual')
+    leer(añoDado)
+    Mientras NFDA(arch_alumnos) hacer
+        si v.carrera = carreraDada y v.UltimoExamenA.año = añoDado y v.nota > 7 entonces
+            grabar(salida, v)
+        fin si
+        leer(arch_alumnos,v) 
+    Fin Mientras
+    cerrar(arch_alumnos)
+    cerrar(salida)
+Fin Accion
