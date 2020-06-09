@@ -1,0 +1,95 @@
+Accion X2 es
+Ambiente
+    Fecha = registro
+        año:N(4)
+        mes:N(2)
+        dia:N(2)
+    fin registro
+
+    reparacion = registro
+        Marca:AN(15)
+        Modelo:AN(15)
+        AñoDeFabricacion:(4)
+        Patente:AN(6)
+        FechaDeReparacion:Fecha
+        TipoDeReparacion:(MG,MP,MC)
+        Costo:N(6)
+    fin  registro
+
+    subaccion corteModelo
+        esc('en la marca: ', rMarca)
+        esc('el modelo', rModelo)
+        esc('tuvo un total de repaciones de ', contModelo)
+        esc('y un costo total de ', acumModelo)
+        contMarca:=contMarca+contModelo
+        acumMarca:=acumMarca+acumModelo
+        contModelo:=0
+        acumModelo:=0
+    fin subaccion
+
+    subaccion corteMarca
+        corteModelo
+        esc('en la marca', rMarca)
+        esc('la cantidad de reparaciones fue de ', contMarca)
+        esc('y un costo total de ', acumMarca)
+        contMarca:=0
+        contModelo:=0
+    fin subaccion
+
+    procedimiento AcumularTipoDeReparacion(tipo:AN(3), costo:N(6))
+        segun tipo hacer:
+            ='MG':
+                cMG:=cMG+costo
+            ='MP':
+                cMP:=cMP+Costo
+            ='MC':
+                cMC:=cMC+Costo
+    fin procedimiento
+
+    funcion mantenimientoMayor(MG:N(6), MP:N(6), MC:N(6)):real
+        si MG > MP y MG >MC
+            mantenimientoMayor:=MG
+        si no
+            si MP > MG y MP > MC
+                mantenimientoMayor:=MP
+            si no
+                mantenimientoMayor:=MC
+    fin funcion
+
+    reparaciones: archivo de reparacion ordenado por Marca, Modelo, añoDeFabricacion, Patente, FechaDeReparacion
+    reparacionn: registro de reparacion
+    rMarca, rModelo:AN(15)
+    cMG, cMP, cMC: entero
+    contModelo, contMarca: entero
+    acumModelo, acumMarca: real
+
+Proceso
+    abrir E/(reparaciones, reparacionn)
+    leer(reparaciones, reparacionn)
+    rMarca:= reparacionn.Marca
+    rModelo:= reparacionn.Modelo
+    cMG:=0; cMP:=0; cMC:=0
+    contModelo:=0; contMarca:=0
+    acumModelo:=0; acumMarca:=0 
+
+    mientras NFDA(reparaciones);
+        si rMarca <> reparacionn.Marca entonces
+            corteMarca
+        si no
+            si rModelo <> reparacionn.Modelo entonces
+                corteModelo
+            fin si
+        fin si
+        AcumularTipoDeReparacion(reparacionn.TipoDeReparacion, reparacionn.Costo)
+
+        contModelo:=contModelo+1
+        acumModelo:=acumModelo+reparacionn.Costo
+
+        leer(reparaciones, reparacionn)
+    fin mientras
+    corteMarca
+    esc('El total de costo para el tipo de reparacion mantenimiento por garantia es de', cMG)
+    esc('El total de costo para el tipo de reparacion mantenimiento preventivo es de', cMP)
+    esc('El total de costo para el tipo de reparacion mantenimiento correctivo es de', cMC)
+    esc('y el mayor es: ' mantenimientoMayor(cMG, cMP, cMC))
+Fin Accion

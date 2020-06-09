@@ -1,0 +1,114 @@
+Accion X1 es
+Ambiente
+
+    Fecha = registro
+        dia: N(2)
+        mes: N(2)
+        año: N(4)
+    fin registro
+
+    expediente = registro
+        Jurisdicción: (1..6)
+        Fuero: (P,C,F,A)
+        Nro_Exped: N(8)
+        Caratula: N(8)
+        Fecha_Ingreso: Fecha
+        Estado: (1..3)
+    fin registro
+
+    salida = registro
+        Jurisdicción: (1..6)
+        Fuero: (P,C,F,A)
+        Cant_Iniciados: N(4)
+        Cant_EP: N(4)
+        Cant_Fin: N(4)
+    fin registro
+
+    expedientes: archivo de expediente ordenador Jurisdiccion, Fuero, Nro_Exped
+    expediente: registro de expediente
+    salida: archivo de salida
+    s: registro de s
+
+    totalI, totalF: entero
+    IJ, FJ: entero
+    rJurisdiccion: (1..6)
+    rFuero:(P,C,F,A)
+
+    c1, c2, c3: entero
+
+    procedimiento contarEstado(estado: AN(1))
+        segun estado hacer
+            =1:
+                c1:= c1+1
+            =2:
+                c2:= c2+1
+            =3:
+                c3:= c3+1
+    fin procedimiento
+
+    subaccion corteFuero
+        esc('en la jurisdiccion ', rJurisdiccion)
+        esc('del fuero ', rFuero)
+        esc('la cantidad de ingresados es de', c1+c2+c3)
+        esc('la cantidad de finalizados es de', c3)
+        esc('y el porcentaje de finalizados sobre el de ingresados es de ', c3/(c1+c2+c3)*100)
+        IJ:=IJ+c1+c2+c3
+        FJ:=FJ+c3
+
+        s.jurisdiccion:=rJurisdiccion
+        s.fuero:=rFuero
+        s.Cant_Iniciados:=c1
+        s.Cant_EP:=c2
+        s.Cant_Fin:=c3
+        grabar(salida, s)
+        
+        c1:=0; c2:=0; c3:=0
+        rFuero:=expediente.Fuero
+    fin subaccion
+
+    subaccion corteJurisdiccion
+        corteFuero
+        esc('en la jurisdiccion', rJurisdiccion)
+        esc('la cantidad de iniciados es de', IJ)
+        esc('la cantidad de finalizados es de', FJ)
+        esc('y el porcentaje de finalizados sobre el de ingresados es de ', IJ/FJ*100)
+
+        totalI:=totalI+IJ
+        totalF:=totalF+FJ
+        
+        IJ:=0; FJ:=0
+        rJurisdiccion:=expediente.Jurisdiccion
+    fin subaccion
+
+Proceso
+    abrir E/(expedientes, expediente)
+    leer(expedientes, expediente)
+    abrir S/(salida)
+    rJurisdiccion:= expediente.Jurisdiccion
+    rFuero:= expediente.Fuero
+    totalJ:=0; totalFue:=0
+    totalI:=0; totalF:=0
+    c1:=0; c2:=0; c3:=0
+    mientras NFDA(expedientes) hacer
+        si rJurisdiccion <> expediente.Jurisdiccion entonces
+            corteJurisdiccion
+        si no 
+            si rFuero <> expediente.Fuero
+                corteFuero
+            fin si
+        fin si
+
+        si expediente.Fuero = 'P' entonces
+            esc(expediente.Nro_Exped , expediente.Caratula , expediente.Fecha_Ingreso , expediente.Estado)
+        fin si
+        contarEstado(expediente.Estado)
+        
+        leer(expedientes, expediente)
+    fin mientras
+    corteJurisdiccion
+    cerrar(expedientes)
+    cerrar(salida)
+    esc('la cantidad total de iniciados es de', totalI)
+    esc('la cantidad total de finalizados es de', totalF)
+    esc('y el porcentaje de finalizados sobre el de ingresados es de ', totalF/totalI*100)
+Fin Accion
