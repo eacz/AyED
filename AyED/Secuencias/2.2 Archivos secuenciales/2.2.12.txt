@@ -1,0 +1,59 @@
+Accion 2.2.12 es
+Ambiente
+    Poblacion = registro
+        Provincia:N()
+        Departamento:N()
+        Ciudad:N()
+        Barrio:N()
+        ID_Casa:N()
+        Cantidad_Habitantes:N()
+    fin registro
+
+    salida = registro
+        Provincia:N()
+        Departamento:N()
+        Cantidad_Habitantes:N()
+    fin registro
+
+    poblacion: archivo de poblacion
+    p: registro de poblacion
+    poblacion_s: archivo de salida
+    p_s: registro de poblacion_s
+
+    cDepartamento: entero
+    rDepartamento, rProvincia: AN(8)
+
+    subaccion corteDepartamento
+        p_s.Provincia:= rProvincia
+        p_s.Departamento:= rDepartamento
+        p_s.Cantidad_Habitantes:= cDepartamento
+        grabar(poblacion_s, p_s)
+        rDepartamento:=p.Departamento
+        cDepartamento:=0
+    fin subaccion
+
+    subaccion corteProvincia
+        corteDepartamento
+        rProvincia:=p.Provincia
+    fin subaccion
+
+
+Proceso
+    abrir E/(poblacion, p)
+    leer(poblacion, p)
+    abrir S/(poblacion_s)
+    rDepartamento:=p.Departamento
+    rProvincia:=p.Provincia
+    mientras NFDA hacer
+        si rProvincia <> p.Provincia entonces
+            corteProvincia
+        si no 
+            si rDepartamento <> p.Departamento entonces
+                corteDepartamento
+            fin si
+        fin si
+
+        cDepartamento:=cDepartamento+p.Cantidad_Habitantes
+
+    fin mientras
+Fin Accion

@@ -1,0 +1,84 @@
+Accion 2.1.11 es
+Ambiente
+    fecha = registro
+        dia: N(2)
+        mes: N(2)
+        año: N(4)
+    fin registro
+
+    alumno = registro
+        sexo: ('M', 'F')
+        carrera: ('ISI','IEM','IQ','LAR')
+        nLegajo: N(5)
+        FechaIng: fecha
+        totalAprobado: N(2)
+    fin registro
+
+    alumnos: archivo de alumno
+    alumno: registro de alumno
+
+    rCarrera: AN(3)
+    rSexo: AN(1)
+
+    carreraMas20, carreraMenos20: entero
+    sexoMas20, sexoMenos20: entero
+    totalMas20, totalMenos20: entero
+
+    procedimiento Corte_carrera es
+        esc('total del sexo ', rSexo)
+        esc('de la carrera ', rCarrera)
+        esc('con mas de 20 materias aprobadas: ', carreraMas20)
+        esc('con menos de 20 materias aprobadas: ', carreraMenos20)
+        sexoMas20:=sexoMas20+carreraMas20
+        sexoMenos20:=sexoMenos20+carreraMenos20
+        rCarrera:= alumno.carrera
+        carreraMas20:=0
+        carreraMenos20:=0
+    fin procedimiento
+
+    procedimiento Corte_sexo es
+        Corte_carrera
+        esc('total del sexo', rSexo)
+        esc('con mas de 20 materias aprobadas: ', sexoMas20)
+        esc('con menos de 20 materias aprobadas: ', sexoMenos20)
+        rSexo:=alumno.sexo
+        totalMas20:=sexoMas20
+        totalMenos20:=sexoMenos20
+        sexoMas20:=0
+        sexoMenos20:=0
+    fin procedimiento
+
+Proceso
+    abrir E/(alumnos)
+    leer(alumnos, alumno)
+
+    rCarrera:=alumno.carrera
+    rSexo:=alumno.sexo
+
+    carreraMas20:=0
+    carreraMenos20:=0
+    sexoMas20:=0 
+    sexoMenos20:=0
+    totalMas20:=0 
+    totalMenos20:=0
+
+    mientras NFDA(alumnos) hacer
+        si rSexo <> alumno.sexo entonces
+            Corte_sexo
+        si no si rCarrera <> alumno.carrera entonces
+            Corte_carrera
+        fin si
+
+        si alumno.FechaIng = 2009 entonces
+            si alumno.totalAprobado > 20 entonces
+                carreraMas20:= carreraMas20+1
+            si no 
+                carreraMenos20:=carreraMenos20+1
+            fin si
+        fin si
+        leer(alumnos, alumno)
+    fin mientras
+    Corte_sexo
+    esc('El total de alumnos con mas de 20 materias aprobadas es: ', totalMas20)
+    esc('El total de alumnos con menos de 20 materias aprobadas es: ', totalMenos20)
+Fin Accion

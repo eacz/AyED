@@ -1,0 +1,125 @@
+Accion - es
+Ambiente
+
+    fecha = registro
+        año:N(4)
+        mes:N(2)
+        dia:N(2)
+    fin registro
+
+    reparacion = registro
+        codSucursal:N(4)
+        Marca:AN(15)
+        Modelo:AN(15)
+        Cod_Tragamonedas:N(6)
+        Fecha_Reparacion:fecha
+        Costo_Reparacion:N(6)
+    fin registro
+    
+    subaccion corteTragamonedas
+        esc('en la sucursal', rSucursal)
+        esc('con la marca', rMarca)
+        esc('del modelo',rModelo)
+        esc('el total de reparaciones del tragamonedas ',rTragamonedas, 'es ' ,cTragamonedas)
+        esc('y el costo total de reparaciones es ', acumTragamonedas)
+        
+        cModelo:=cModelo+cTragamonedas
+        acumModelo::=acumModelo+acumTragamonedas
+        
+        cTragamonedas:=0
+        acumTragamonedas:=0
+
+        rTragamonedas:=reparacionn.Cod_Tragamonedas
+    fin subaccion
+
+    subaccion corteModelo
+        corteTragamonedas
+        esc('en la sucursal', rSucursal)
+        esc('con la marca', rMarca)
+        esc('del modelo',rModelo)
+        esc('el numero total de reparaciones es ' ,cModelo)
+        esc('y el costo total de reparaciones es ', acumModelo)
+
+        cMarca:= cMarca+cModelo
+        acumMarca:= acumMarca+acumModelo
+
+        cModelo:=0
+        acumModelo:=0
+        rModelo:=repaccionn.Modelo
+    fin accion 
+    
+    subaccion corteMarca
+        corteModelo
+        esc('en la sucursal', rSucursal)
+        esc('con la marca', rMarca)
+        esc('el numero total de reparaciones es ' ,cMarca)
+        esc('y el costo total de reparaciones es ', acumMarca)
+
+        cSucursal:=cSucursal+cMarca
+        acumSucursal:=acumSucursal+acumMarca
+
+        cMarca:=0
+        acumMarca:=0
+        rMarca:= reparacionn.Marca
+    fin accion 
+    
+    subaccion corteSucursal
+        corteMarca
+        esc('en la sucursal', rSucursal)
+        esc('el numero total de reparaciones es ' ,cSucursal)
+        esc('y el costo total de reparaciones es ', acumSucursal)
+        
+        cTotal:=cTotal+cSucursal
+        acumTotal:=acumTotal+acumSucursal
+
+        cSucursal:=0
+        acumSucursal:=0
+
+        rSucursal:=reparacionn.codSucursal
+    fin accion 
+
+    cTotal, cSucursal, cMarca, cModelo, cTragamonedas:entero
+    acumTotal, acumSucursal, acumMarca, acumModelo, acumTragamonedas:real
+    
+    rSucursal:N(4)
+    rMarca, rModelo: AN(15)
+    reparaciones: archivo de reparacion ordenado por codSucursal Marca Modelo Cod_Tragamonedas
+    reparacionn: registro de registro
+
+Proceso
+    abrir e/(reparaciones)
+    leer(reparaciones, reparacionn)
+    
+    cTotal:=0; cSucursal:=0; cMarca:=0; cModelo:=0; cTragamonedas:=0
+    acumTotal:=0; acumSucursal:=0; acumMarca:=0; acumModelo:=0; acumTragamonedas:=0
+    
+    rSucursal:=reparacionn.codSucursal
+    rMarca:=reparacionn.Marca
+    rModelo:=repaccionn.Modelo
+
+    mientras NFDA(reparaciones) hacer
+        si rSucursal <> reparacionn.codSucursal entonces
+            corteSucursal
+        si no
+            si rMarca <> reparacionn.Marca entonces
+                corteMarca
+            si no
+                si rModelo <> repaccionn.Modelo entonces
+                    corteModelo
+                si no 
+                    si rTragamonedas <> reparacionn.Cod_Tragamonedas entonces
+                        corteTragamonedas
+                    fin si
+                fin si
+            fin si
+        fin si
+
+        cTragamonedas:=cTragamonedas+1
+        acumTragamonedas:=acumTragamonedas+reparacionn.Costo_Reparacion
+        
+        leer(reparaciones, reparacionn)
+    fin mientras
+    corteSucursal
+    esc('El total de unidades reparadas es de: ',cTotal)
+    esc('El costo total de unidades reparadas es de: ',acumTotal)
+Fin Accion
