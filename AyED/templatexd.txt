@@ -4,3 +4,9 @@ Ambiente
 Proceso
     
 Fin Accion
+
+fecha = registro
+    año:N(4)
+    mes:N(2)
+    dia:N(2)
+fin registro
