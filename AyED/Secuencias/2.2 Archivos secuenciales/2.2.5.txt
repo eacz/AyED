@@ -1,0 +1,39 @@
+Accion 2.2.1 es
+Ambiente
+    Fecha = registro
+        año:= N(4)
+        mes:= N(2)
+        dia:= N(2)
+    fin registro
+
+    Alumno = registro
+        ApellidoYNombre: AN(60)
+        Carrera: ('IQ','ISI','IEM')
+        Legajo: N(5)
+        FechaNacimiento: Fecha
+        FechaIngreso: Fecha
+        DNI: N(8)
+        Sexo: {'F', 'M'}
+        UltimoExamenA: Fecha
+        Nota: N(2)
+    fin registro
+    
+    arch_alumnos: archivos de Alumno
+    v: Alumno
+    carreraDada: ('IQ','ISI','IEM')
+    añoDado:N(4)
+     
+Proceso
+    abrir /e(arch_alumnos)
+    leer(arch_alumnos,v)
+    esc('ingrese el año actual')
+    leer(añoDado)
+    esc('Legajo || Apellido y Nombre || Carrera')
+    Mientras NFDA(arch_alumnos) hacer
+        si v.FechaIngreso = añoDado-1 y v.nota > 7 entonces
+            esc(v.Legajo, v.ApellidoYNombre, v.Carrera)
+        fin si
+        leer(arch_alumnos,v) 
+    Fin Mientras
+    cerrar(arch_alumnos)
+Fin Accion
