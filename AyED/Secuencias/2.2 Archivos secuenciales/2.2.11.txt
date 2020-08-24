@@ -42,8 +42,8 @@ Ambiente
         esc('con mas de 20 materias aprobadas: ', sexoMas20)
         esc('con menos de 20 materias aprobadas: ', sexoMenos20)
         rSexo:=alumno.sexo
-        totalMas20:=sexoMas20
-        totalMenos20:=sexoMenos20
+        totalMas20:=totalMas20+sexoMas20
+        totalMenos20:=totalMenos20+sexoMenos20
         sexoMas20:=0
         sexoMenos20:=0
     fin procedimiento
